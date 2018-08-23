@@ -1,2 +1,2 @@
 # emulation_lib-example-scenarios
-A collection of example scenarios to be executed with the emulation-lib (TODO: link).
+A collection of setup instructions and example scenarios for the [emulation_lib](https://github.com/theuerse/emulation_lib).
