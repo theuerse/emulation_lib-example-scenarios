@@ -1,0 +1,2 @@
+start, delay, loss random, rate
+0.000000	0.000000	0.00	10240.000

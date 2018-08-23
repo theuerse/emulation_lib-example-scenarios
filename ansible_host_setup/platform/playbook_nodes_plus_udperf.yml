@@ -1,0 +1,6 @@
+---
+- hosts: nodes
+  become: yes
+  roles:
+    - node
+    - udperf_app_host

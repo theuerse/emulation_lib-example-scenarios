@@ -1,0 +1,9 @@
+# e.g.
+# cd mkdir ~/emulation
+# cd emulation
+# git clone https://github.com/theuerse/emulation-lib.git
+# export PYTHONPATH=$PYTHONPATH:/home/user/emulation
+
+(https://stackoverflow.com/questions/24197970/pycharm-import-external-library)
+
+python3 

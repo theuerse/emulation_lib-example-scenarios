@@ -1,0 +1,10 @@
+#example network first node start with id 0 and node n ends with id n-1
+# 0 -- 1 -- 2
+#number of nodes
+3
+#nodes setting (n1,n2) bidirectional connection
+0,1
+1,2
+#properties (Client, Server)
+0,2
+#eof //do not delete this

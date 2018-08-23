@@ -1,0 +1,68 @@
+---
+# resetting firewall rules on the nodes
+- name: "Firewall rule: set default INPUT policy to ACCEPT"
+  become: yes
+  iptables:
+    chain: INPUT
+    policy: ACCEPT
+
+- name: "Firewall rule: set default FORWARD policy to ACCEPT"
+  become: yes
+  iptables:
+    chain: FORWARD
+    policy: ACCEPT
+
+- name: "Firewall rule: set default OUTPUT policy to ACCEPT"
+  become: yes
+  iptables:
+    chain: OUTPUT
+    policy: ACCEPT
+
+- name: "Flush existing rules"
+  become: yes
+  iptables:
+   flush: true
+
+# basic packages
+- name: "Install git"
+  become: yes
+  apt: pkg=git state=present
+
+- name: "Install build essentials"
+  become: yes
+  apt: pkg=build-essential state=present
+
+- name: "Install boost libs"
+  become: yes
+  apt: pkg=libboost-all-dev state=present
+
+- name: "Install cmake"
+  become: yes
+  apt: pkg=cmake state=present
+
+# emulation-udperf
+- name: "Cloning emulation-udperf repo"
+  become: no
+  git:
+    repo: "https://github.com/theuerse/emulation-udperf.git"
+    dest: emulation/emulation-udperf
+    update: yes
+    clone: yes
+
+- name: "Configuring emulation-udperf"
+  become: no
+  shell: cmake .
+  args:
+    chdir: emulation/emulation-udperf
+
+- name: "Making emulation-udperf"
+  become: no
+  shell: make
+  args:
+    chdir: emulation/emulation-udperf
+
+- name: "Installing emulation-udperf"
+  become: yes
+  shell: make install
+  args:
+    chdir: emulation/emulation-udperf

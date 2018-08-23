@@ -1,0 +1,38 @@
+# basic programs
+- name: "Install git"
+  become: yes
+  apt: pkg=git state=present
+
+- name: "Install python3"
+  become: yes
+  apt: pkg=python3 state=present
+
+- name: "Install python3-venv"
+  become: yes
+  apt: pkg=python3-venv state=present
+
+- name: "Install libssl-dev"
+  become: yes
+  apt: pkg=libssl-dev state=present
+
+- name: "Install libffi-dev"
+  become: yes
+  apt: pkg=libffi-dev state=present
+
+- name: "Install python3-dev"
+  become: yes
+  apt: pkg=python3-dev state=present
+
+- name: "Install libigraph0-dev"
+  become: yes
+  apt: pkg=libigraph0-dev state=present
+
+
+# clone emulation-lib
+- name: "Cloning emulation_lib repo"
+  become: no
+  git:
+    repo: "https://github.com/theuerse/emulation_lib.git"
+    dest: ~/emulation/emulation_lib
+    update: yes
+    clone: yes

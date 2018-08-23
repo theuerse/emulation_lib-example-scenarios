@@ -1,0 +1,82 @@
+---
+# resetting firewall rules on the nodes
+- name: "Firewall rule: set default INPUT policy to ACCEPT"
+  become: yes
+  iptables:
+    chain: INPUT
+    policy: ACCEPT
+
+- name: "Firewall rule: set default FORWARD policy to ACCEPT"
+  become: yes
+  iptables:
+    chain: FORWARD
+    policy: ACCEPT
+
+- name: "Firewall rule: set default OUTPUT policy to ACCEPT"
+  become: yes
+  iptables:
+    chain: OUTPUT
+    policy: ACCEPT
+
+- name: "Flush existing rules"
+  become: yes
+  iptables:
+   flush: true
+
+# basic packages
+- name: "Install git"
+  become: yes
+  apt: pkg=git state=present
+
+- name: "Install iperf"
+  become: yes
+  apt: pkg=iperf state=present
+
+- name: "Install build essentials"
+  become: yes
+  apt: pkg=build-essential state=present
+
+- name: "Install boost libs"
+  become: yes
+  apt: pkg=libboost-all-dev state=present
+
+- name: "Install cmake"
+  become: yes
+  apt: pkg=cmake state=present
+
+# copy script for setting cpu governor
+- name: "Transfer CPU governor script"
+  copy:
+    src: ./scripts/cpugov.sh
+    dest: emulation/cpugov.sh
+    owner: nfd
+    group: nfd
+    mode: 0644
+
+# emulation-cmdscheduler
+- name: "Cloning emulation-cmdscheduler repo"
+  become: no
+  git:
+    repo: "https://github.com/theuerse/emulation-cmdscheduler.git"
+    dest: emulation/emulation-cmdscheduler
+    update: yes
+    clone: yes
+
+- name: "Configuring emulation-cmdscheduler"
+  become: no
+  shell: cmake .
+  args:
+    chdir: emulation/emulation-cmdscheduler
+
+- name: "Making emulation-cmdscheduler"
+  become: no
+  shell: make
+  args:
+    chdir: emulation/emulation-cmdscheduler
+
+- name: "Installing emulation-cmdscheduler"
+  become: yes
+  shell: make install
+  args:
+    chdir: emulation/emulation-cmdscheduler
+

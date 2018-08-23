@@ -1,0 +1,120 @@
+2018-08-16 09:24:33,174 Configuration seems ok
+2018-08-16 09:24:33,175 Finalizing setup by generating the commands/configs needed by the apps
+2018-08-16 09:24:33,175 Emulation: HelloWorld
+Output-directory: /home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/results/HelloWorld/
+Duration: 100
+Number of runs: 1
+Seconds between runs: 5
+Path to config-file: /home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/example.config.py
+Link command backend: BDL_
+Static routes: []
+
+
+NetworkBlock: simple_mobility_802.11G_AdHoc_constant
+Directory: /home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/blocks/simple_mobility_802.11G_AdHoc_constant
+Number of Nodes: 2
+Nodes: 0 1 
+
+
+Available interval-sizes: 
+	100 ['0_1_100.txt', '1_0_100.txt']
+	500 ['1_0_500.txt', '0_1_500.txt']
+	250 ['1_0_250.txt', '0_1_250.txt']
+	1000 ['1_0_1000.txt', '0_1_1000.txt']
+Interval selected: True
+Selected interval: 1000
+
+
+
+Node nr: 0
+<Scheduled commands>
+	-1.0	['pkill -KILL iperf', '(sudo chrt -o -p 0 $BASHPID && iperf -s -i 1 -u > /home/nfd/emulation/results/server.log 2>&1 &)']
+	100.0	['pkill -KILL iperf &']
+</Scheduled commands>
+<ConfigFiles to be distributed>
+</ConfigFiles to be distributed>
+<Results to be fetched>
+	('/home/nfd/emulation/results/server.log', '/home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/results/HelloWorld/results/192.168.1.10.server.log_%RUN%')
+</Results to be fetched>
+
+Node nr: 1
+<Scheduled commands>
+	-1.0	['pkill -KILL iperf']
+	0	['(sudo chrt -o -p 0 $BASHPID && iperf -c 192.168.1.10 -i 1 -u -b 100M -t 99 > /home/nfd/emulation/results/client.log 2>&1 &) &']
+	100.0	['pkill -KILL iperf &']
+</Scheduled commands>
+<ConfigFiles to be distributed>
+</ConfigFiles to be distributed>
+<Results to be fetched>
+	('/home/nfd/emulation/results/client.log', '/home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/results/HelloWorld/results/192.168.1.11.client.log_%RUN%')
+</Results to be fetched>
+
+2018-08-16 09:24:33,175 Garthering intermediate-files
+2018-08-16 09:24:33,176 Creating command-files
+2018-08-16 09:24:33,181 Ready to execute HelloWorld
+2018-08-16 09:24:33,181 skipping run 0, already performed (result-files found)
+2018-08-16 09:24:33,181 Finished all runs, end of emulation
+2018-08-16 09:24:33,181 
+
+
+
+2018-08-16 09:24:33,181 Configuration seems ok
+2018-08-16 09:24:33,181 Finalizing setup by generating the commands/configs needed by the apps
+2018-08-16 09:24:33,181 Emulation: HelloWorld
+Output-directory: /home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/results/HelloWorld/
+Duration: 100
+Number of runs: 1
+Seconds between runs: 5
+Path to config-file: /home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/example.config.py
+Link command backend: BDL_
+Static routes: []
+
+
+NetworkBlock: simple_mobility_802.11G_AdHoc_constant
+Directory: /home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/blocks/simple_mobility_802.11G_AdHoc_constant
+Number of Nodes: 2
+Nodes: 0 1 
+
+
+Available interval-sizes: 
+	100 ['0_1_100.txt', '1_0_100.txt']
+	500 ['1_0_500.txt', '0_1_500.txt']
+	250 ['1_0_250.txt', '0_1_250.txt']
+	1000 ['1_0_1000.txt', '0_1_1000.txt']
+Interval selected: True
+Selected interval: 1000
+
+
+
+Node nr: 0
+<Scheduled commands>
+	-1.0	['pkill -KILL iperf', '(sudo chrt -o -p 0 $BASHPID && iperf -s -i 1 -u > /home/nfd/emulation/results/server.log 2>&1 &)']
+	100.0	['pkill -KILL iperf &']
+</Scheduled commands>
+<ConfigFiles to be distributed>
+</ConfigFiles to be distributed>
+<Results to be fetched>
+	('/home/nfd/emulation/results/server.log', '/home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/results/HelloWorld/results/192.168.1.10.server.log_%RUN%')
+</Results to be fetched>
+
+Node nr: 1
+<Scheduled commands>
+	-1.0	['pkill -KILL iperf']
+	0	['(sudo chrt -o -p 0 $BASHPID && iperf -c 192.168.1.10 -i 1 -u -b 100M -t 99 > /home/nfd/emulation/results/client.log 2>&1 &) &']
+	100.0	['pkill -KILL iperf &']
+</Scheduled commands>
+<ConfigFiles to be distributed>
+</ConfigFiles to be distributed>
+<Results to be fetched>
+	('/home/nfd/emulation/results/client.log', '/home/theuers/papers/mobilityEmulation_git/emulation_lib-example-scenarios/hello-world/results/HelloWorld/results/192.168.1.11.client.log_%RUN%')
+</Results to be fetched>
+
+2018-08-16 09:24:33,182 Garthering intermediate-files
+2018-08-16 09:24:33,182 Creating command-files
+2018-08-16 09:24:33,187 Ready to execute HelloWorld
+2018-08-16 09:24:33,187 skipping run 1, already performed (result-files found)
+2018-08-16 09:24:33,187 Finished all runs, end of emulation
+2018-08-16 09:24:33,188 
+
+
+
