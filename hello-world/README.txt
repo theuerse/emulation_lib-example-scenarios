@@ -18,7 +18,7 @@
 #REMOTE_DATA_DIR = os.path.join(REMOTE_EMULATION_DIR,"data")
 #MIN_START_TIME_OFFSET = 20											
 #
-#ITEC_GATEWAY = "192.168.0.2"										... the IP address of the gateway/managment server/machine
+#GATEWAY_SERVER = "192.168.0.2"										... the IP address of the gateway/managment server/machine
 #MNG_PREFIX = "192.168.0."											... the subnet address of the nodes used for management
 #EMU_PREFIX = "192.168.1." 											... the subnet address of the nodes used for the emulation
 #MULTICAST_NETWORK = "224.0.0.1/16"
