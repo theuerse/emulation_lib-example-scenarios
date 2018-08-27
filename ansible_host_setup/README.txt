@@ -4,6 +4,11 @@ Machines:
 192.168.0.11 ... node #2
 
 "nfd" is the user account, which is present on all nodes.
+# If the used username on your nodes differs, please change following files to fit this:
+vim platform/roles/node/tasks/main.yml  # "owner: nfd"  "group: nfd"
+vim platform/hosts.txt
+# and the config file called "example.config.py" referenced by scenario files
+# e.g. vim ../hello-world/example.config
 
 #
 # On the gateway:
@@ -64,6 +69,7 @@ source ~/emulation/emu-venv/bin/activate
 source ~/emulation/emu-venv/bin/activate
 export PYTHONPATH=$PYTHONPATH:~/emulation
 cd ../hello-world
+# Important: Adapt the settings file "example.config.py" to fit your setup ("vim example.config.py")
 python3 hello_world.py
 
 ------------------------------------------------------------------------------------------------------------------
@@ -156,3 +162,12 @@ sudo sh test_ifb.sh
 
 # Completing this setup should allow to run the "hello-world" example, more complex scenarios may still require
 # installation of packages/software on the gateway/nodes.
+
+------------------------------------------------------------------------------------------------------------------
+
+# The "scripts" folder contains examples for managing the nodes using Ansible.
+# "setCpuGovOndeman.sh" and "setCpuGovPerformance.sh" are of interest as they allow to set the used cpu frequency
+# scaling governor (power scheme) on all nodes.
+# e.g.
+cd scripts
+sh showCpuGov.sh
