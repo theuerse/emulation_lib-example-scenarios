@@ -44,6 +44,14 @@
   become: yes
   apt: pkg=cmake state=present
 
+# ensure emulation directory exists
+- name: "Create emulation directory"
+  file:
+    path: emulation
+    state: directory
+    owner: nfd
+    group: nfd
+
 # copy script for setting cpu governor
 - name: "Transfer CPU governor script"
   copy:
