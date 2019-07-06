@@ -28,6 +28,10 @@
   become: yes
   apt: pkg=git state=present
 
+- name: "Install screen"
+  become: yes
+  apt: pkg=screen state=present
+  
 - name: "Install build essentials"
   become: yes
   apt: pkg=build-essential state=present
